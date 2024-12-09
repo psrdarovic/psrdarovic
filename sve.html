@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objedinjeni HTML Resursi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            display: none; /* Svi dijelovi su skriveni na početku */
+            padding: 20px;
+        }
+        section.active {
+            display: block; /* Samo aktivni dio je vidljiv */
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre, code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a onclick="showSection('uvod')">Uvod</a>
+        <a onclick="showSection('genericki-elementi')">Generički elementi</a>
+        <a onclick="showSection('forme')">Forme</a>
+        <a onclick="showSection('tablice-liste')">Tablice i liste</a>
+    </nav>
+
+    <section id="uvod" class="active">
+        <h1>Uvod</h1>
+        <p>Uvod u meta podatke, elemente i atribute sa slovom h označavamo naslove:</p>
+        <p><strong>Naslovi:</strong> <code>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;</code>...</p>
+        <p>Oznaka za paragraf: <code>&lt;p&gt;</code>. Primjer paragrafa s atributima:</p>
+        <p style="color: red; font-weight: bold;">Ovaj paragraf ima crvenu boju i podebljan je.</p>
+        <img src="slike/stablo.jpg" alt="stablo">
+        <p>Relativna putanja za slike koristi <code>src</code>, dok <code>alt</code> označava opis slike.</p>
+        <img src="https://www.profil-klett.hr/sites/default/files/styles/sx_1170/public/field/image/thinkstockphotos-450142183.jpg?itok=D52RkAFX" alt="stabla"><p>Tu je src putanja apsolutna jer je označena sa URL-om, a alt označava opis slike </p> 
+        <!--također ovo je način komentiranja u HTML-u-->
+    </section>
+
+    <section id="genericki-elementi" class="active">
+        <h1>Entiteti</h1>
+        <p>Neki znakovi imaju specifična značenja poput &gt;, te se zbog toga ne mogu koristit direktno u tekstu.</p>
+        <p>Entiteti imaju 3 dijela: znak &amp;, ime entiteta ili # i broj entiteta te na kraju ;.</p>
+        <img src="slike/entiteti.webp" alt="entiteti u htmlu">
+        <p>Također, ako u kodu stavimo više razmaka, on ih ne prepoznaje već ih tretira kao jednog, a kad stavimo &nbsp; on razumije da se radi o većem praznom prostoru u tekstu.</p>
+        <br>
+        
+        <h2>Elementi</h2>
+        <p>Element <code>div</code> koristi se kao kontejner koji sadrži ostale elemente poput teksta, slike, audio i video elemenata.</p>
+        <p>Također je i blok element jer ima svojstvo da kreira u novom redu blok segmenata sa punom širinom ekrana.</p>
+        <p>Element <code>span</code> koristi se kao objekt koji sadrži isključivo tekst te dodatno oblikuje sadržaj kojeg opisuje.</p>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea laudantium fugit necessitatibus voluptates consequuntur veniam exercitationem temporibus incidunt, sequi quo asperiores ullam fugiat voluptatibus <span style="color: red;">sint velit nam iusto</span>, deleniti dolores?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea laudantium fugit necessitatibus voluptates consequuntur veniam exercitationem temporibus incidunt, sequi quo asperiores ullam fugiat voluptatibus <span style="color: red;">sint velit nam iusto</span>, deleniti dolores?</p>
+        </div>
+        
+        <h3>Audio i video elementi</h3>
+        <p>HTML podržava VIDEO formate MP4, WebM i Ogg.</p>
+        <p>HTML standard podržava AUDIO formate MP3, WAV i Ogg.</p>
+        <p>Ovo je primjer kako se piše kod za video:</p>
+        <code>
+            &lt;video width="320" height="240" controls autoplay muted poster="nba-poster.jpeg"&gt;<br>
+            &nbsp;&nbsp;&lt;source src="movie.mp4" type="video/mp4"&gt;<br>
+            &nbsp;&nbsp;Your browser does not support the video tag.<br>
+            &lt;/video&gt;
+        </code>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vV5CZ1ELU2s" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        <p>YouTube video njegov link se dodaje tako da ispod videa nalazi se podijelite i klikom na to nalaze se razne mogućnosti, a klikom na &lt;&gt; dobiva se gotov kod koji se samo kopira i zalijepi.</p>
+        <br>
+        <p>Kad se radi o audio elementu, kod izgleda ovako:</p>
+        <code>
+            &lt;audio controls autoplay muted&gt;<br>
+            &nbsp;&nbsp;&lt;source src="audio.ogg" type="audio/ogg"&gt;<br>
+            &nbsp;&nbsp;&lt;source src="audio.mp3" type="audio/mpeg"&gt;<br>
+            &nbsp;&nbsp;Your browser does not support the audio element.<br>
+            &lt;/audio&gt;
+        </code>
+    
+        <h4>Favicon</h4>
+        <p>Favicon su male slike koje služe za prepoznatljivost nekog brenda. Primjer je broj 24 u gornjem lijevom kutu URL-a stranice 24sata. Google preporučuje dimenziju 48x48 piksela.</p>
+        <p>Primjer pisanja koda za favicon:</p>
+        <code>
+            &lt;link rel="icon" type="image/x-icon" href="favicon.ico"&gt;
+        </code>
+    </section>
+    
+
+    <section id="forme">
+        <h1>Web forme ili obrasci</h1>
+        <p>Web forme mogu sadržavati unaprijed definirane vrste polja kao što su:</p>
+        <ul>
+            <li>Kratki unos</li>
+            <li>Odabir jedne od više mogućnosti</li>
+            <li>Odabir više od više mogućnosti</li>
+            <li>Unos teksta</li>
+            <li>Padajući izbornik</li>
+            <li>Unos datoteka i slika</li>
+        </ul>
+        <p>HTML forma oblikovana je:</p>
+        <ul>
+            <li>Sadržajem</li>
+            <li>Kontrolama</li>
+        </ul>
+        <p>Forme nam pomažu da komuniciramo sa serverom i bazom podataka.</p>
+        <p>Primjer izgleda forme:</p>
+        <code>
+            &lt;form action="adduser.php" method="post"&gt;<br>
+            &nbsp;&nbsp;&lt;label for="firstname"&gt;Ime: &lt;/label&gt;<br>
+            &nbsp;&nbsp;&lt;input type="text" id="firstname" name="firstname"&gt;&lt;br&gt;<br>
+            &nbsp;&nbsp;&lt;label for="lastname"&gt;Prezime: &lt;/label&gt;<br>
+            &nbsp;&nbsp;&lt;input type="text" id="lastname" name="lastname"&gt;&lt;br&gt;<br>
+            &nbsp;&nbsp;&lt;label for="email"&gt;E-mail: &lt;/label&gt;<br>
+            &nbsp;&nbsp;&lt;input type="text" id="email" name="email"&gt;&lt;br&gt;<br>
+            &nbsp;&nbsp;&lt;input type="radio" name="gender" value="Male"&gt; Muško&lt;br&gt;<br>
+            &nbsp;&nbsp;&lt;input type="radio" name="gender" value="Female"&gt; Žensko&lt;br&gt;<br>
+            &nbsp;&nbsp;&lt;input type="submit" value="Pošalji"&gt;<br>
+            &nbsp;&nbsp;&lt;input type="reset" value="Poništi"&gt;<br>
+            &lt;/form&gt;
+        </code>
+        <br>
+        <form action="adduser.php" method="post">
+            <label for="firstname">Ime: </label>
+            <input type="text" id="firstname" name="firstname"><br>
+            <label for="lastname">Prezime: </label>
+            <input type="text" id="lastname" name="lastname"><br>
+            <label for="email">E-mail: </label>
+            <input type="text" id="email" name="email"><br>
+            <input type="radio" name="gender" value="Male"> Muško<br>
+            <input type="radio" name="gender" value="Female"> Žensko<br>
+            <input type="submit" value="Pošalji">
+            <input type="reset" value="Poništi">
+        </form>
+        <p>Obzirom na <span style="font-weight: bolder;">atribute</span>, <code>input</code> polje mijenja svoj oblik i funkciju:</p>
+        <p><strong>Atributi</strong> koje <code>input</code> polje može primiti:</p>
+        <ul>
+            <li>text</li>
+            <li>password</li>
+            <li>checkbox</li>
+            <li>radio</li>
+            <li>submit</li>
+            <li>reset</li>
+            <li>file</li>
+            <li>hidden</li>
+            <li>image</li>
+            <li>button</li>
+        </ul>
+        
+        <h2>Atributi u form elementu</h2>
+        <p><strong>action:</strong> URL stranice na koju se šalju podaci.</p>
+        <p><strong>method:</strong> Način slanja podataka:</p>
+        <ul>
+            <li><strong>GET:</strong> Podaci se šalju preko URL-a (npr. pretraživanje podataka na webu).</li>
+            <li><strong>POST:</strong> Slanje putem dodatnih parametara (npr. registracija korisnika).</li>
+        </ul>
+    
+        <h3>HTML FORME - INPUT</h3>
+        <code>
+            &lt;form action="adduser.php" method="post"&gt;<br>
+            &nbsp;&nbsp;&lt;label for="firstname"&gt;Ime: &lt;/label&gt;<br>
+            &nbsp;&nbsp;&lt;input type="text" id="firstname" name="firstname"&gt;&lt;br&gt;<br>
+            &nbsp;&nbsp;&lt;label for="lastname"&gt;Prezime: &lt;/label&gt;<br>
+            &nbsp;&nbsp;&lt;input type="text" id="lastname" name="lastname"&gt;&lt;br&gt;<br>
+            &nbsp;&nbsp;&lt;input type="submit" value="Pošalji"&gt;<br>
+            &lt;/form&gt;
+        </code>
+    
+        <h4>HTML FORME SELECT I OPTION</h4>
+        <p>Primjer korištenja <code>select</code> i <code>option</code> elemenata:</p>
+        <code>
+            &lt;select name="dropdown"&gt;<br>
+            &nbsp;&nbsp;&lt;option value=""&gt;Molimo odaberite&lt;/option&gt;<br>
+            &nbsp;&nbsp;&lt;option value="volvo"&gt;Volvo&lt;/option&gt;<br>
+            &lt;/select&gt;
+        </code>
+        <br>
+        <select class="form-control" name="dropdown">
+            <option value="">Molimo odaberite</option>
+            <option value="volvo">Volvo</option>
+        </select>
+        
+        <h4>HTML FORME TEXTAREA</h4>
+        <p>Textarea polje mora imati početni i završni element:</p>
+        <code>
+            &lt;textarea name="note" placeholder="Molim unesite svoj tekst..."&gt;&lt;/textarea&gt;
+        </code>
+        <textarea name="note" placeholder="Molim unesite svoj tekst..."></textarea>
+    </section>
+    
+
+    <section id="tablice-liste">
+        <h1>HTML Tablica sa <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>rowspan</code> i <code>colspan</code></h1>
+        <p>
+            HTML elementi <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, i <code>&lt;th&gt;</code> koriste se za pravljenje redova, ćelija i zaglavlja tablica. Atributi <code>rowspan</code> i <code>colspan</code> omogućavaju spajanje ćelija.
+        </p>
+        <p>
+            Primjer:
+        </p>
+        <code>
+            &lt;table border="1"&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Naslov 1&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Naslov 2&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Naslov 3&lt;/th&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td rowspan="2"&gt;Podatak 1 (spaja 2 reda)&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Podatak 2&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Podatak 3&lt;/td&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td colspan="2"&gt;Podatak 4 (spaja 2 kolone)&lt;/td&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &lt;/table&gt;
+        </code>
+        <p>
+            Objašnjenje:
+            <ul>
+                <li><code>&lt;th&gt;</code>: Koristi se za zaglavlja tablica. Ćelije su podebljane i centrirane.</li>
+                <li><code>&lt;td&gt;</code>: Koristi se za podatke u tablici.</li>
+                <li><code>rowspan="2"</code>: Spaja dvije ćelije u istom redu, okomito.</li>
+                <li><code>colspan="2"</code>: Spaja dvije ćelije u istoj koloni, vodoravno.</li>
+            </ul>
+        </p>
+        <table border="1">
+            <tr>
+                <th>Naslov 1</th>
+                <th>Naslov 2</th>
+                <th>Naslov 3</th>
+            </tr>
+            <tr>
+                <td rowspan="2"> Podatak 1 (spajanje 2 reda)</td>
+                <td>Podatak 2</td>
+                <td>Podatak 3</td>
+            </tr>
+            <tr>
+                <td colspan="2"> Podatak 4 (spajanje 2 kolone)</td>
+            </tr>
+        </table>
+    
+        <h1>Ugnježđene liste u HTML-u</h1>
+        <p>
+            HTML omogućuje korištenje uređenih (<code>&lt;ol&gt;</code>) i neuređenih (<code>&lt;ul&gt;</code>) lista za organizaciju sadržaja. Te liste mogu biti ugnježđene radi prikaza složenijih hijerarhija.
+        </p>
+        <h2>1. Neuređena lista (<code>&lt;ul&gt;</code>)</h2>
+        <p>Neuređena lista koristi simbole poput točaka za označavanje stavki.</p>
+        <h3>Primjer:</h3>
+        <ul>
+            <li>Prva stavka</li>
+            <li>Druga stavka</li>
+            <li>Treća stavka</li>
+        </ul>
+    
+        <h2>2. Uređena lista (<code>&lt;ol&gt;</code>)</h2>
+        <p>Uređena lista koristi brojeve, slova ili rimske brojeve za označavanje stavki.</p>
+        <h3>Primjer:</h3>
+        <ol>
+            <li>Prva stavka</li>
+            <li>Druga stavka</li>
+            <li>Treća stavka</li>
+        </ol>
+    
+        <h2>3. Ugnježđene liste</h2>
+        <p>Ugnježđene liste mogu kombinirati uređene i neuređene liste.</p>
+        <h3>Primjer ugnježđene liste:</h3>
+        <ul>
+            <li>Prva stavka</li>
+            <li>Druga stavka</li>
+            <li>Treća stavka
+                <ul>
+                    <li>Podstavka 1</li>
+                    <li>Podstavka 2
+                        <ol>
+                            <li>Numerirana podstavka 1</li>
+                            <li>Numerirana podstavka 2</li>
+                        </ol>
+                    </li>
+                    <li>Podstavka 3</li>
+                </ul>
+            </li>
+            <li>Četvrta stavka</li>
+        </ul>
+    </section>
+    
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
